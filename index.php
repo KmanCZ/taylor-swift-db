@@ -7,7 +7,7 @@
 <?php
     include "includes/class-autoload.inc.php";
     $song = new SongsView();
-    $song->showAlbumName(9);
+    $song->showAlbumSongs(6);
 ?>
 
 <?php
