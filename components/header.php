@@ -10,3 +10,4 @@
 </head>
 
 <body>
+    <h1 class="title is-1">Taylor Swift Database</h1>
