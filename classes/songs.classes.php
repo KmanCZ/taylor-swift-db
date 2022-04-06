@@ -8,13 +8,13 @@ class Songs extends Dbh {
 
         if(!$stmt->execute(array($album_id))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: index.php?error=stmtfailed");
             exit();
         }
 
         if($stmt->rowCount() == 0) {
             $stmt = null;
-            header("location: ../index.php?error=albumnotfound");
+            header("location: 404.php?error=albumnotfound");
             exit();
         }
 
@@ -28,13 +28,13 @@ class Songs extends Dbh {
 
         if(!$stmt->execute(array($album_id))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: index.php?error=stmtfailed");
             exit();
         }
 
         if($stmt->rowCount() == 0) {
             $stmt = null;
-            header("location: ../index.php?error=albumnotfound");
+            header("location: 404.php?error=albumnotfound");
             exit();
         }
 

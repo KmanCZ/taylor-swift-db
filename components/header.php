@@ -10,4 +10,4 @@
 </head>
 
 <body>
-    <h1 class="title is-1">Taylor Swift Database</h1>
+    <h1 class="title is-1"><a class="has-text-black" href="index.php">Taylor Swift Database</a> </h1>
