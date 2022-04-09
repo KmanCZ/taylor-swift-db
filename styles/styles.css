@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "I'm Fell DW Pica";
+  src: url(IMFePIit29P.ttf);
+  src: url(IMFePIrm29P.ttf);
+  src: url(IMFePIsc29P.ttf);
+}
+
+html {
+  background-color: rgb(47, 47, 46);
+}
+
+body {
+  font-family: "I'm Fell DW Pica";
+}
+
+.logo {
+  font-family: "I'm Fell DW Pica";
+  font-weight: lighter;
+  font-style: italic;
+}
+
+a {
+  color: rgb(187, 187, 186);
+}
+
+a:hover {
+  color: rgb(127, 127, 127);
+}
