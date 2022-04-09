@@ -14,9 +14,24 @@ body {
 }
 
 .logo {
-  font-family: "I'm Fell DW Pica";
   font-weight: lighter;
   font-style: italic;
+}
+
+.album-name {
+  color: rgb(187, 187, 186);
+  font-weight: 100;
+  font-size: 4rem;
+}
+
+.song-name {
+  font-size: 1.2rem;
+}
+
+.album-page-img {
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.91);
+  max-width: 30em;
+  height: auto;
 }
 
 a {

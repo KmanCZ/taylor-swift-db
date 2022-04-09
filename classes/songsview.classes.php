@@ -10,12 +10,19 @@ class SongsView extends Songs {
     public function showAlbumSongs($album_id) {
         $result = $this->getAlbumSongs($album_id);
         
-        echo '<h2 class="title">' . $result[0]["albums_name"] . '</h2>';
+        echo '<h2 class="title album-name has-text-centered">' . $result[0]["albums_name"] . '</h2>';
 
+        echo '<div class="columns">';
+        echo '<div class="column is-offset-1">';
         foreach ($result as $song) {
-            echo '<a href="song.php?songid='. $song["songs_id"] . '" >'  . $song["songs_order"] . ". " . $song["songs_name"] . "</a>";
+            echo '<a href="song.php?songid='. $song["songs_id"] . '" class="song-name">'  . $song["songs_order"] . ". " . $song["songs_name"] . "</a>";
             echo "<br>";
         }
+        echo "</div>";
+        echo '<div class="column">';
+        echo '<img src="img/'.$album_id.'.jpg" class="album-page-img">';
+        echo "</div>";
+        echo "</div>";
     }
 
     public function showSong($song_id) {
