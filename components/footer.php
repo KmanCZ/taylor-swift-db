@@ -12,6 +12,7 @@
                     Swift lyrics
                     searcher</a> made by <a href="https://shaynak.github.io/">Shayna Kothari</a>. I also used her <a
                     href="https://github.com/shaynak/taylor-swift-lyrics">scraped lyrics</a>.</p>
+            <p class="about-info">This page was created using PHP and <a href="https://bulma.io/">Bulma</a>!</p>
         </div>
     </div>
 
