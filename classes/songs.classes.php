@@ -61,4 +61,24 @@ class Songs extends Dbh {
         $song = $stmt->fetch();
         return $song;
     }
+
+    protected function getVideo($song_id) {
+        $sql = "SELECT songs_video FROM songs WHERE songs_id=?;";
+        $stmt = $this->connect()->prepare($sql);
+
+        if(!$stmt->execute(array($song_id))) {
+            $stmt = null;
+            header("location: index.php?error=stmtfailed");
+            exit();
+        }
+
+        if($stmt->rowCount() == 0) {
+            $stmt = null;
+            header("location: 404.php?error=songnotfound");
+            exit();
+        }
+
+        $video = $stmt->fetch();
+        return $video;
+    }
 }

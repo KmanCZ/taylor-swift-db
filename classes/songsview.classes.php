@@ -36,4 +36,13 @@ class SongsView extends Songs {
         echo '<p class="lyrics">' . nl2br($lyrics) . "</p>";
         
     }
+
+    public function showVideo($song_id) {
+        $result = $this->getVideo($song_id);
+        
+        echo '<iframe class="video" width="640" height="480" src="https://www.youtube.com/embed/'.$result["songs_video"].'"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>';
+    }
 }
