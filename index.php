@@ -18,7 +18,7 @@
         </div>
         <div class="column">
             <a href="http://localhost/TaylorDB/album.php?albumid=3">
-                <img src="img/3.png" class="album-cover" alt="">
+                <img src="img/3.jpg" class="album-cover" alt="">
                 <h3 class="is-size-5">Speak Now (Deluxe)</h3>
             </a>
         </div>
