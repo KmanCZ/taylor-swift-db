@@ -13,6 +13,16 @@ body {
   font-family: "I'm Fell DW Pica";
 }
 
+.info-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.about-info {
+  font-size: 1.2em;
+}
+
 .video {
   position: sticky;
   top: 10rem;
