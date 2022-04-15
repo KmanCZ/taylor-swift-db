@@ -30,10 +30,10 @@ class SongsView extends Songs {
 
         $lyrics = str_replace(PHP_EOL,"\n", $result["songs_lyrics"]);
         
-        echo '<h2 class="title">' . $result["songs_name"] . '</h2>';
-        echo '<h3 class="subtitle"><a href="album.php?albumid='. $result["albums_id"] . '">' . $result["albums_name"] . '</a></h3>';
+        echo '<h2 class="title song-name-lyrics">' . $result["songs_name"] . '</h2>';
+        echo '<h3 class="subtitle album-name-lyrics"><a href="album.php?albumid='. $result["albums_id"] . '">' . $result["albums_name"] . '</a></h3>';
 
-        echo "<p>" . nl2br($lyrics) . "</p>";
+        echo '<p class="lyrics">' . nl2br($lyrics) . "</p>";
         
     }
 }
