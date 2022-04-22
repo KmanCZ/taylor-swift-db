@@ -45,4 +45,14 @@ class SongsView extends Songs {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>';
     }
+
+    public function showLyrics($query) {
+        $result = $this->getLyrics($query);
+
+        if(!$result) {
+            echo "No such song was found!";
+        }
+
+        print_r($result);
+    }
 }

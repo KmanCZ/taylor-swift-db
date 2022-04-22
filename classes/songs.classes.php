@@ -81,4 +81,24 @@ class Songs extends Dbh {
         $video = $stmt->fetch();
         return $video;
     }
+
+    public function getLyrics($query) {
+        $sql = 'SELECT lyrics.lyrics_id, lyrics.lyrics_text, lyrics.lyrics_prev, lyrics.lyrics_next, lyrics.lyrics_multi, songs.songs_name, albums.albums_name FROM lyrics INNER JOIN albums ON albums.albums_id=lyrics.albums_id INNER JOIN songs ON songs.songs_id=lyrics.songs_id WHERE lyrics.lyrics_text RLIKE CONCAT("[[:<:]]",?,"[[:>:]]") ORDER BY lyrics.lyrics_id ASC;';
+        $stmt = $this->connect()->prepare($sql);
+        //$stmt->bindValue(":query", $query);
+
+        if(!$stmt->execute(array($query))) {
+            $stmt = null;
+            header("location: index.php?error=stmtfailed");
+            exit();
+        }
+
+        if($stmt->rowCount() == 0) {
+            $stmt = null;
+            return false;
+        }
+
+        $lyrics = $stmt->fetchAll();
+        return $lyrics;
+    }
 }
