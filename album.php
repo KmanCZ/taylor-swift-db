@@ -3,8 +3,6 @@
 ?>
 
 <?php
-    include "includes/class-autoload.inc.php";
-    $song = new SongsView();
     $song->showAlbumSongs($_GET["albumid"]);
 ?>
 

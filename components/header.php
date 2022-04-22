@@ -1,3 +1,8 @@
+<?php
+    include_once "includes/class-autoload.inc.php";
+    $song = new SongsView();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
