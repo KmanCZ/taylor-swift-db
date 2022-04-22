@@ -15,10 +15,10 @@
         <h1 class="title is-1 is-half logo"><a href="index.php">Taylor Swift Database</a> </h1>
     </header>
 
-    <form action="" class="mb-4">
+    <form action="search.php" method="GET" class="mb-4">
         <div class="field is-grouped is-grouped-centered">
             <div class="control">
-                <input type="text" placeholder="Search lyrics" class="input is-rounded is-dark">
+                <input type="text" name="query" placeholder="Search lyrics" class="input is-rounded is-dark">
             </div>
             <div class="control">
                 <button type="submit" class="button is-rounded">
