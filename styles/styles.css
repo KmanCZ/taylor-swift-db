@@ -13,6 +13,14 @@ body {
   font-family: "I'm Fell DW Pica";
 }
 
+header {
+  position: sticky;
+  top: 0;
+  background-color: rgb(47, 47, 46);
+  padding-bottom: 10px;
+  padding-top: 1.5rem;
+}
+
 .info-btn {
   position: fixed;
   bottom: 1rem;
