@@ -9,7 +9,7 @@ class SongsView extends Songs {
 
     public function showAlbumSongs($album_id) {
         $result = $this->getAlbumSongs($album_id);
-        
+        echo "<main>";
         echo '<h2 class="title album-name has-text-centered">' . $result[0]["albums_name"] . '</h2>';
 
         echo '<div class="columns">';
@@ -23,6 +23,7 @@ class SongsView extends Songs {
         echo '<img src="img/'.$album_id.'.jpg" class="album-page-img">';
         echo "</div>";
         echo "</div>";
+        echo "</main>";
     }
 
     public function showSong($song_id) {

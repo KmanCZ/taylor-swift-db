@@ -2,7 +2,7 @@
     include "components/header.php";
 ?>
 
-<section class="px-6">
+<main class="px-6">
     <div class="columns is-8 has-text-centered">
         <div class="column">
             <a href="http://localhost/TaylorDB/album.php?albumid=1">
@@ -64,7 +64,7 @@
     </div>
 
 
-</section>
+</main>
 
 <?php
     include "components/footer.php";
