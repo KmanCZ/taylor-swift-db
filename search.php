@@ -1,12 +1,15 @@
 <?php
     include "components/header.php";
 ?>
-<main>
+<main class="columns is-centered">
+    <div class="column is-half">
+        <?php
+            $song->showLyrics($_GET["query"]);
+        ?>
+    </div>
 
 </main>
-<?php
-    $song->showLyrics($_GET["query"]);
-?>
+
 
 <?php
     include "components/footer.php";

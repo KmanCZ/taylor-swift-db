@@ -47,13 +47,80 @@ class SongsView extends Songs {
             allowfullscreen></iframe>';
     }
 
+    //TODO: Přidat odkazy na stránky songu
     public function showLyrics($query) {
         $result = $this->getLyrics($query);
 
         if(!$result) {
             echo "No such song was found!";
+            exit();
         }
 
-        print_r($result);
+        $wordCount = $this->numberOfWordUse($result, $query);
+        $songCount = $this->numberOfSongs($result);
+
+        echo '<div class="has-text-centered searched-numbers mb-3">';
+        echo "Found " . $wordCount . " usages in " . $songCount . " songs";
+        echo "</div>";
+
+        foreach ($result as $line) {
+            echo '<div class="has-text-centered searched-result py-2 is-size-5">';
+            if (!empty($line["lyrics_prev"])) {
+                echo $line["lyrics_prev"] . "<br>";
+            }
+            echo $line["lyrics_text"] . "<br>";
+            print_r($this->highlightWord($line["lyrics_text"], $query));
+            if (!empty($line["lyrics_next"])) {
+                echo $line["lyrics_next"] . "<br>";
+            }
+
+            echo '<div class="pt-1"><span class="searched-result-name">'.$line["songs_name"].', <span class="is-italic">'.$line["albums_name"].'</span></span></div>';
+            echo "</div>";
+        }
+
+        
+    }
+
+
+    //returns string with word highlighted by span
+    //TODO: Zvýzarňovač slov
+    private function highlightWord($line, $word) {
+        $pattern = "/\b(?i)".$word."\b/";
+        preg_match_all($pattern, $line, $matches, PREG_OFFSET_CAPTURE);
+
+        
+        foreach($matches[0] as $find) {
+            $start = $find[1];
+            $end = $start + strlen($word);
+
+
+        }
+        
+        return $matches;
+    }
+
+    //returns number of songs stored in array
+    private function numberOfSongs($arr) {
+        $usedSongs = array();
+        $numOfSongs = 0;
+
+        foreach($arr as $line) {
+            if(!in_array($line["songs_name"], $usedSongs)) {
+                $numOfSongs++;
+                array_push($usedSongs, $line["songs_name"]);
+            }
+        }
+
+        return $numOfSongs;
+    }
+
+    //returns number of used lyrics
+    private function numberOfWordUse($arr, $word) {
+        $count = null;
+        foreach ($arr as $line) {
+            preg_match_all("/\b(?i)".$word."\b/", $line["lyrics_text"], $match);
+            $count += count($match[0]) * $line["lyrics_multi"];
+        }
+        return $count;
     }
 }
