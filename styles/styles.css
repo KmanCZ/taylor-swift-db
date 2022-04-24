@@ -55,6 +55,7 @@ a:hover {
 }
 
 .album-name {
+  color: rgb(187, 187, 186);
   font-weight: 100;
   font-size: 4rem;
 }
@@ -64,6 +65,7 @@ a:hover {
 }
 
 .song-name-lyrics {
+  color: rgb(187, 187, 186);
   font-weight: 100;
   font-size: 2.5rem;
 }
