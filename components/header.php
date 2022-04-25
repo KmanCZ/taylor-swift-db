@@ -37,7 +37,7 @@
             <div class="field is-grouped is-grouped-centered">
                 <div class="control">
                     <?php
-                    echo '<input value="'.$_GET["query"].'" type="text" name="query" placeholder="Search lyrics" class="input is-rounded is-dark">';
+                    echo '<input value="'.$_GET["query"].'" type="text" name="query" onfocus="this.select()" placeholder="Search lyrics" class="input is-rounded is-dark">';
                 ?>
                 </div>
                 <div class="control">
