@@ -10,6 +10,17 @@
     <meta charset=" UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Taylor Swift Database" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="img/thumbnail.png" />
+
+    <meta name="twitter:title" content="Taylor Swift Database">
+    <meta name="twitter:description" content="Database and search engine for Taylor's lyrics!">
+    <meta name="twitter:image" content="img/thumbnail.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <title>Taylor Swift Database</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/bulma.css">
