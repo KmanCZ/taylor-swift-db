@@ -47,12 +47,11 @@ class SongsView extends Songs {
             allowfullscreen></iframe>';
     }
 
-    //TODO: Přidat odkazy na stránky songu
     public function showLyrics($query) {
         $result = $this->getLyrics($query);
 
         if(!$result) {
-            echo "No such song was found!";
+            echo '<div class="has-text-centered searched-numbers mb-3">No results were found :/</div>';
             exit();
         }
 
