@@ -83,7 +83,7 @@ class Songs extends Dbh {
     }
 
     protected function getLyrics($query) {
-        $sql = 'SELECT lyrics.lyrics_id, lyrics.lyrics_text, lyrics.lyrics_prev, lyrics.lyrics_next, lyrics.lyrics_multi, songs.songs_name, albums.albums_name FROM lyrics INNER JOIN albums ON albums.albums_id=lyrics.albums_id INNER JOIN songs ON songs.songs_id=lyrics.songs_id WHERE lyrics.lyrics_text RLIKE CONCAT("[[:<:]]",?,"[[:>:]]") ORDER BY lyrics.lyrics_id ASC;';
+        $sql = 'SELECT lyrics.lyrics_id, lyrics.lyrics_text, lyrics.lyrics_prev, lyrics.lyrics_next, lyrics.lyrics_multi, lyrics.songs_id, songs.songs_name, albums.albums_name FROM lyrics INNER JOIN albums ON albums.albums_id=lyrics.albums_id INNER JOIN songs ON songs.songs_id=lyrics.songs_id WHERE lyrics.lyrics_text RLIKE CONCAT("[[:<:]]",?,"[[:>:]]") ORDER BY lyrics.lyrics_id ASC;';
         $stmt = $this->connect()->prepare($sql);
 
         if(!$stmt->execute(array($query))) {
@@ -100,5 +100,41 @@ class Songs extends Dbh {
 
         $lyrics = $stmt->fetchAll();
         return $lyrics;
+    }
+
+    //returns string with word highlighted by span
+    protected function highlightWord($line, $word) {
+        $pattern = "/\b(?i)".$word."\b/";
+        
+        $final = preg_replace_callback($pattern, function ($matches) {
+            return '<span class="searched-highlight">'.$matches[0].'</span>';
+        }, $line);
+
+        return $final;        
+    }
+
+    //returns number of songs stored in array
+    protected function numberOfSongs($arr) {
+        $usedSongs = array();
+        $numOfSongs = 0;
+
+        foreach($arr as $line) {
+            if(!in_array($line["songs_name"], $usedSongs)) {
+                $numOfSongs++;
+                array_push($usedSongs, $line["songs_name"]);
+            }
+        }
+
+        return $numOfSongs;
+    }
+
+    //returns number of used lyrics
+    protected function numberOfWordUse($arr, $word) {
+        $count = null;
+        foreach ($arr as $line) {
+            preg_match_all("/\b(?i)".$word."\b/", $line["lyrics_text"], $match);
+            $count += count($match[0]) * $line["lyrics_multi"];
+        }
+        return $count;
     }
 }

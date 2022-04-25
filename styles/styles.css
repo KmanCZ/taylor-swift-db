@@ -98,5 +98,16 @@ a:hover {
 }
 
 .searched-result-name {
-  color: rgb(126, 127, 126);
+  color: rgb(127, 127, 127);
+}
+
+.searched-highlight {
+  background-color: rgb(255, 255, 255);
+  color: rgb(54, 54, 54);
+}
+
+.searched-link:hover {
+  display: block;
+  color: rgb(187, 187, 186);
+  box-shadow: inset 0px 0px 5px 0.5px rgb(255, 255, 255);
 }
